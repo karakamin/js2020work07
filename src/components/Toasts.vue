@@ -8,23 +8,20 @@
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
-      data-autohide="false"
-    >
+      data-autohide="false">
       <div class="toast-header">
         <div
           class="inline-block rounded mr-2"
           style="width: 20px; height: 20px"
-          :class="`bg-${ item.status }`"
-        />
-        <strong class="mr-auto">六角實戰班</strong>
+          :class="`bg-${ item.status }`"/>
+        <strong class="mr-auto">甜甜一點-後台管理頁面</strong>
         <small>現在</small>
         <button
           type="button"
           class="ml-2 mb-1 close"
           data-dismiss="toast"
           aria-label="Close"
-          @click="closeToast(`toast-${i}`)"
-        >
+          @click="closeToast(`toast-${i}`)">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

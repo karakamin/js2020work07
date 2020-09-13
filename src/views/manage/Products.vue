@@ -2,23 +2,15 @@
   <div>
     <Loading :active.sync="isLoading" />
     <div class="text-right mt-4">
-      <button
-        class="btn btn-primary"
-        @click="openModal('new')"
-      >
-        建立新的產品
-      </button>
+      <button class="btn btn-info"
+        @click="openModal('new')">建立新的產品</button>
     </div>
     <table class="table mt-4">
       <thead>
         <tr>
-          <th width="120">
-            分類
-          </th>
+          <th width="120">分類</th>
           <th>產品名稱</th>
-          <th width="120">
-            原價
-          </th>
+          <th width="120">原價</th>
           <th width="120">
             售價
           </th>
@@ -31,10 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(item) in products"
-          :key="item.id"
-        >
+        <tr v-for="(item) in products" :key="item.id">
           <td>{{ item.category }}</td>
           <td>{{ item.title }}</td>
           <td class="text-right">
@@ -52,27 +41,17 @@
           </td>
           <td>
             <div class="btn-group">
-              <button
-                class="btn btn-outline-primary btn-sm"
-                @click="openModal('edit', item)"
-              >
-                編輯
-              </button>
+              <button class="btn btn-outline-info btn-sm"
+                @click="openModal('edit', item)">編輯</button>
               <button
                 class="btn btn-outline-danger btn-sm"
-                @click="openModal('delete', item)"
-              >
-                刪除
-              </button>
+                @click="openModal('delete', item)">刪除</button>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
-    <Pagination
-      :pages="pagination"
-      @emitPages="getProducts"
-    />
+    <Pagination :pages="pagination" @emitPages="getProducts"/>
     <!-- Modal -->
     <div
       id="productModal"
@@ -80,27 +59,19 @@
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div
         class="modal-dialog modal-xl"
-        role="document"
-      >
+        role="document">
         <div class="modal-content border-0">
           <div class="modal-header bg-dark text-white">
-            <h5
-              id="exampleModalLabel"
-              class="modal-title"
-            >
+            <h5 id="exampleModalLabel" class="modal-title">
               <span v-if="isNew">新增產品</span>
               <span v-else>編輯 {{ tempProduct.title }} 產品</span>
             </h5>
-            <button
-              type="button"
-              class="close"
+            <button type="button" class="close"
               data-dismiss="modal"
-              aria-label="Close"
-            >
+              aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -110,38 +81,29 @@
                 <div
                   v-for="i in 5"
                   :key="i + 'img'"
-                  class="form-group"
-                >
+                  class="form-group">
                   <label :for="'img' + i">輸入圖片網址</label>
                   <input
                     :id="'img' + i"
                     v-model="tempProduct.imageUrl[i - 1]"
                     type="text"
                     class="form-control"
-                    placeholder="請輸入圖片連結"
-                  >
+                    placeholder="請輸入圖片連結">
                 </div>
                 <div class="form-group">
                   <label for="customFile">
                     或 上傳圖片
-                    <i
-                      v-if="status.fileUploading"
-                      class="fas fa-spinner fa-spin"
-                    />
+                    <i v-if="status.fileUploading"
+                      class="fas fa-spinner fa-spin"/>
                   </label>
                   <input
                     id="customFile"
                     ref="file"
                     type="file"
                     class="form-control"
-                    @change="uploadFile"
-                  >
+                    @change="uploadFile">
                 </div>
-                <img
-                  class="img-fluid"
-                  :src="tempProduct.imageUrl[0]"
-                  alt
-                >
+                <img class="img-fluid" :src="tempProduct.imageUrl[0]"  alt>
               </div>
               <div class="col-sm-8">
                 <div class="form-group">
@@ -152,8 +114,7 @@
                     type="text"
                     class="form-control"
                     placeholder="請輸入標題"
-                    required
-                  >
+                    required>
                 </div>
 
                 <div class="form-row">
@@ -165,8 +126,7 @@
                       type="text"
                       class="form-control"
                       placeholder="請輸入分類"
-                      required
-                    >
+                      required>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="price">單位</label>
@@ -175,8 +135,7 @@
                       v-model="tempProduct.unit"
                       type="text"
                       class="form-control"
-                      placeholder="請輸入單位"
-                    >
+                      placeholder="請輸入單位">
                   </div>
                 </div>
 
@@ -188,8 +147,7 @@
                       v-model="tempProduct.origin_price"
                       type="number"
                       class="form-control"
-                      placeholder="請輸入原價"
-                    >
+                      placeholder="請輸入原價">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="price">售價</label>
@@ -198,8 +156,7 @@
                       v-model="tempProduct.price"
                       type="number"
                       class="form-control"
-                      placeholder="請輸入售價"
-                    >
+                      placeholder="請輸入售價">
                   </div>
                 </div>
                 <hr>
@@ -212,15 +169,13 @@
                     type="text"
                     class="form-control"
                     placeholder="請輸入產品說明"
-                    required
-                  />
+                    required/>
                 </div>
                 <div class="form-group">
                   <label for="content">產品描述</label>
                   <vue-editor
                     id="content"
-                    v-model="tempProduct.content"
-                  />
+                    v-model="tempProduct.content"/>
                 </div>
                 <div class="form-group">
                   <div class="form-check">
@@ -228,12 +183,8 @@
                       id="is_enabled"
                       v-model="tempProduct.enabled"
                       class="form-check-input"
-                      type="checkbox"
-                    >
-                    <label
-                      class="form-check-label"
-                      for="is_enabled"
-                    >是否啟用</label>
+                      type="checkbox">
+                    <label class="form-check-label" for="is_enabled">是否啟用</label>
                   </div>
                 </div>
               </div>
@@ -243,47 +194,26 @@
             <button
               type="button"
               class="btn btn-outline-secondary"
-              data-dismiss="modal"
-            >
+              data-dismiss="modal">
               取消
             </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              @click="updateProduct"
-            >
+            <button type="button" class="btn btn-primary" @click="updateProduct">
               確認
             </button>
           </div>
         </div>
       </div>
     </div>
-    <div
-      id="delProductModal"
-      class="modal fade"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div
-        class="modal-dialog"
-        role="document"
-      >
+    <div id="delProductModal" class="modal fade" tabindex="-1"
+      role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
         <div class="modal-content border-0">
           <div class="modal-header bg-danger text-white">
-            <h5
-              id="exampleModalLabel"
-              class="modal-title"
-            >
+            <h5 id="exampleModalLabel" class="modal-title">
               <span>刪除產品</span>
             </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+            <button type="button" class="close"
+              data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -295,15 +225,13 @@
             <button
               type="button"
               class="btn btn-outline-secondary"
-              data-dismiss="modal"
-            >
+              data-dismiss="modal">
               取消
             </button>
             <button
               type="button"
               class="btn btn-danger"
-              @click="delProduct"
-            >
+              @click="delProduct">
               確認刪除
             </button>
           </div>
@@ -314,7 +242,7 @@
 </template>
 
 <script>
-/* global  */
+/* 分頁元件  */
 import Pagination from '@/components/Pagination.vue';
 
 export default {
@@ -407,7 +335,7 @@ export default {
         $('#productModal').modal('hide');
 
         this.$bus.$emit('message:push',
-          '新增成功囉，好棒ヽ(＾Д＾)ﾉ ',
+          '資料新增成功',
           'success');
 
         this.isLoading = false;
@@ -421,7 +349,7 @@ export default {
         $('#productModal').modal('hide');
 
         this.$bus.$emit('message:push',
-          `出現錯誤惹，好糗Σ( ° △ °|||)︴
+          `資料新增失敗：
             ${errorData}`,
           'danger');
       });
@@ -438,7 +366,7 @@ export default {
         this.isLoading = false;
 
         this.$bus.$emit('message:push',
-          '刪除成功囉，好棒ヽ(＾Д＾)ﾉ',
+          '產品刪除成功！',
           'success');
 
         this.getProducts();
@@ -468,8 +396,7 @@ export default {
         }
       }).catch(() => {
         this.$bus.$emit('message:push',
-          `檔案上傳失敗惹，好糗Σ( ° △ °|||)︴
-          請檢查是不是檔案大小超過 2MB`,
+          '檔案上傳失敗，請檢查是不是檔案大小超過 2MB',
           'danger');
 
         this.status.fileUploading = false;

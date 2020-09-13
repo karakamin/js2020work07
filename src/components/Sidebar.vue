@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Vue 後台管理系統</a>
+    <a class="navbar-brand" href="#">甜甜一點-後台管理系統</a>
     <button class="navbar-toggler"
       type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent"
@@ -15,9 +15,9 @@
         <li class="nav-item">
           <router-link class="nav-link" :to="{ name: '產品頁面'}">產品列表</router-link>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <router-link class="nav-link" :to="{ name: '優惠券'}">優惠卷列表</router-link>
-        </li>
+        <!-- </li>
         <li class="nav-item">
           <router-link class="nav-link" :to="{ name: '圖片頁面'}">圖片頁面</router-link>
         </li>
@@ -48,7 +48,7 @@ export default {
       // this.$bus.$emit('message:push', '登出成功', 'success');
       alert('登出成功');
 
-      this.$router.push('/');
+      this.$router.push('/login');
     },
   },
 };

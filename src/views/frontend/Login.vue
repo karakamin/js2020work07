@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <div class=group>
     <Loading :active.sync="isLoading"></Loading>
     <form class="form-signin" @submit.prevent="signin">
       <h3 class="h3 mb-3 font-weight-normal">Login</h3>
@@ -16,13 +17,11 @@
           id="inputPwd"
           v-model="user.password"
           placeholder="請輸入密碼"
-          required
-        />
+          required />
       </div>
       <button class="btn btn-lg btn-info btn-block" type="submit">登入</button>
-      <!--<button class="btn btn-lg btn-danger btn-block" type="button" >登出</button> -->
-      <!-- <button class="btn btn-lg btn-info btn-block" type="button" >驗證</button> -->
     </form>
+    </div>
   </div>
 </template>
 <script>
@@ -88,4 +87,5 @@ body {
   padding: 15px;
   margin: auto;
 }
+
 </style>

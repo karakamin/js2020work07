@@ -39,7 +39,7 @@ export default {
           path: 'login',
         });
 
-        alert('出現錯誤請確認');
+        alert('出現錯誤惹，請與管理人員確認!');
       }
       this.checkSuccess = true;
     });

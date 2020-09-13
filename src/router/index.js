@@ -7,6 +7,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
+    name: 'Home',
+    component: () => import('../views/frontend/Home.vue'),
+  },
+  {
+    path: '/login',
     name: 'Login',
     component: () => import('../views/frontend/Login.vue'),
   },
@@ -25,12 +30,19 @@ const routes = [
   // },
   {
     path: '/manage',
+    name: '管理頁面',
     component: () => import('../views/manage/Dashboard.vue'),
     children: [
       {
         path: 'Products',
         name: '產品頁面', // router 識別用
         component: () => import('../views/manage/Products.vue'),
+        meta: { requiresAuth: true },
+      },
+      {
+        path: 'coupons',
+        name: '優惠券',
+        component: () => import('../views/manage/Coupons.vue'),
         meta: { requiresAuth: true },
       },
       // {
