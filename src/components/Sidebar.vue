@@ -20,13 +20,6 @@
         <li class="nav-item">
           <router-link class="nav-link" :to="{ name: '訂單列表'}">訂單列表</router-link>
         </li>
-        <!-- </li>
-        <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: '圖片頁面'}">圖片頁面</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" :to="{ name: '用戶訂單'}">模擬下單系統</router-link> -->
-        <!-- </li> -->
         <li class="nav-item">
           <a class="nav-link" href="#" @click.prevent="signout">登出</a>
         </li>
