@@ -12,7 +12,7 @@
           <th>折扣百分比</th>
           <th>到期日</th>
           <th>是否啟用</th>
-          <th>編輯</th>
+          <th>功能</th>
         </tr>
       </thead>
       <tbody>
@@ -27,7 +27,7 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-primary btn-sm"
+              <button class="btn btn-outline-info btn-sm"
                 @click="openCouponModal('edit', item)">編輯</button>
               <button class="btn btn-outline-danger btn-sm"
                 @click="openCouponModal('delete', item)">刪除</button>
@@ -112,8 +112,7 @@
                   :false-value="0">
                 <label
                   class="form-check-label"
-                  for="enabled"
-                >是否啟用</label>
+                  for="enabled">是否啟用</label>
               </div>
             </div>
           </div>

@@ -45,6 +45,12 @@ const routes = [
         component: () => import('../views/manage/Coupons.vue'),
         meta: { requiresAuth: true },
       },
+      {
+        path: 'orders',
+        name: '訂單列表',
+        component: () => import('../views/manage/Orders.vue'),
+        meta: { requiresAuth: true },
+      },
       // {
       //   path: 'coupons',
       //   component: () => import('../views/manage/Coupons.vue')
